@@ -23,12 +23,12 @@ SELECT
     p.id_reserva,
     p.id_medio_pago,
 
-    -- 2. Información del Comprobante y Estado
+    -- 2. Informaciï¿½n del Comprobante y Estado
     p.comprobante,
     p.numero_operacion,
     p.estado,
 
-    -- 3. Fechas del Registro y Auditoría
+    -- 3. Fechas del Registro y Auditorï¿½a
     p.fecha_pago,
     GETDATE() AS Fecha_Consulta,
 
@@ -38,5 +38,5 @@ SELECT
     (p.monto + DJRL.fn_CalcularIGVPago(p.monto)) AS Total_Con_IGV
 
 FROM DJRL.pago p
-WHERE p.monto >= 0              -- Excluye las devoluciones y notas de crédito (montos negativos)
+WHERE p.monto >= 0             
 ORDER BY p.id_pago DESC;
